@@ -4,6 +4,7 @@
 *.pyc
 *.swp
 .DS_Store
+.env
 .atom/
 .build/
 .buildlog/
@@ -11,6 +12,34 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
+
+# VS Code settings
+.vscode/
+.idea/
+
+# Android
+android/.gradle/
+android/app/build/
+android/local.properties
+*.iml
+# iOS
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.symlinks/
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/build/
+*.xcuserstate
+
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.pub-cache/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.melos_tool/
+generated_plugin_registrant.dart
 
 # IntelliJ related
 *.iml
