@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "978276826353",
+    "project_id": "electricapp-c5ce5",
+    "storage_bucket": "electricapp-c5ce5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978276826353:android:0a374ee9da6d9a58c17d50",
+        "android_client_info": {
+          "package_name": "com.example.electric_shop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtPOIXtSXn3G2cwhooB04NUO1kf2ttauw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
