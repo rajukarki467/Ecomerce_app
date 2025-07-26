@@ -23,6 +23,10 @@ subprojects {
 
 // ✅ ADD this block inside your buildscript
 buildscript {
+     repositories {
+        google()       // ✅ Add this line
+        mavenCentral() // ✅ Add this line
+    }
     dependencies {
         classpath("com.google.gms:google-services:4.4.0") // Firebase plugin
     }
