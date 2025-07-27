@@ -1,10 +1,14 @@
 import 'package:electric_shop/pages/bottomnav.dart';
 import 'package:electric_shop/pages/home.dart';
 import 'package:electric_shop/pages/login.dart';
+import 'package:electric_shop/pages/services/database.dart';
+import 'package:electric_shop/pages/services/shared_pref.dart';
 import 'package:electric_shop/widget/support_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:random_string/random_string.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Signup extends StatefulWidget {
   @override
@@ -32,6 +36,21 @@ class _SignupState extends State<Signup> {
             ),
           ),
         );
+        String Id = randomAlphaNumeric(10);
+        await SharedPreferenceHelper().saveUserEmail(emailcontroller.text);
+        await SharedPreferenceHelper().saveUserName(namecontroller.text);
+        await SharedPreferenceHelper().saveUserId(Id);
+        await SharedPreferenceHelper().saveUserImage(
+          "https://thumbs.dreamstime.com/z/innovative-medical-device-featuring-eye-image-illustrating-advanced-tracking-technology-generated-ai-358374352.jpg?ct=jpeg",
+        );
+        Map<String, dynamic> userInfoMap = {
+          "Name": namecontroller.text,
+          "Email": emailcontroller.text,
+          "image":
+              "https://thumbs.dreamstime.com/z/innovative-medical-device-featuring-eye-image-illustrating-advanced-tracking-technology-generated-ai-358374352.jpg?ct=jpeg",
+          "id": Id,
+        };
+        await DatabaseMethods().addUserDetails(userInfoMap, Id);
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => Bottomnav()),
