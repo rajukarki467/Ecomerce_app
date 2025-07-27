@@ -1,4 +1,5 @@
 import 'package:electric_shop/Admin/aadmin_login.dart';
+import 'package:electric_shop/Admin/add_product.dart';
 import 'package:electric_shop/pages/bottomnav.dart';
 import 'package:electric_shop/pages/home.dart';
 import 'package:electric_shop/pages/login.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: AadminLogin(),
+      home: AddProduct(),
       // home: Onboarding(),
     );
   }
