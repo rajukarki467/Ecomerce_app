@@ -1,5 +1,9 @@
+import 'dart:io';
 import 'package:electric_shop/widget/support_widget.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:random_string/random_string.dart';
 
 class AddProduct extends StatefulWidget {
   @override
@@ -7,6 +11,26 @@ class AddProduct extends StatefulWidget {
 }
 
 class _AddProductState extends State<AddProduct> {
+  final ImagePicker _picker = ImagePicker();
+  File? selectedImage;
+  TextEditingController namecontroller = new TextEditingController();
+
+  Future getImage() async {
+    var image = await _picker.pickImage(source: ImageSource.gallery);
+    selectedImage = File(image!.path);
+    setState(() {});
+  }
+
+  uploasItem() {
+    if (selectedImage != null && namecontroller != "") {
+      String addId = randomAlphaNumeric(10);
+      Reference firebaseStorageRef = FirebaseStorage.instance
+          .ref()
+          .child("blogImage")
+          .child(addId);
+    }
+  }
+
   final List<String> categoryitems = ['Watch', 'Laptop', 'Tv', 'Headphone'];
   String? value;
   @override
@@ -56,6 +80,7 @@ class _AddProductState extends State<AddProduct> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: TextField(
+                  controller: namecontroller,
                   decoration: InputDecoration(border: InputBorder.none),
                 ),
               ),
